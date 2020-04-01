@@ -130,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "Weather"
+  "defaultProject": "Weather",
+  "cli": {
+    "analytics": false
+  }
 }
