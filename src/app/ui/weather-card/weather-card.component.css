@@ -26,7 +26,7 @@
   
   .weather__card-dark {
     /*background: linear-gradient(to bottom, #711B86, #00057A);*/
-  background: linear-gradient(to bottom, #372865, #000000);
+  background: linear-gradient(to bottom, #3728658e, #0000006b);
     color: white;
   }
   
