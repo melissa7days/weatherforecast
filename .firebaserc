@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "weather-1078e": {
+      "hosting": {
+        "Weather": [
+          "weather-1078e"
+        ]
+      }
+    }
+  }
+}
