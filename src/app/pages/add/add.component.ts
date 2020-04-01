@@ -12,7 +12,8 @@ import {first} from 'rxjs/operators';
 export class AddComponent implements OnInit, OnDestroy {
 
   temp: number;
-  city = 'Rome';
+  city: string;
+  cities:[];
   state: string;
   capitals = [];
   selectedCity;
@@ -26,12 +27,16 @@ export class AddComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // getting the city placeID
     this.weather.getWeather(this.city).subscribe((payload: any) => {
       this.state = payload.weather[0].main;
       this.temp = Math.ceil(Number(payload.main.temp));
     });
-
+    this.weather.getWeather(this.city).subscribe(
+      response => {
+        console.log(response);
+        this.weather = response;
+      }
+    );
     this.http.get('https://restcountries.eu/rest/v2/all').pipe((first())).subscribe((countries: Array<any>) => {
       countries.forEach((country: any) => {
         if (country.capital.length) {
@@ -43,7 +48,7 @@ export class AddComponent implements OnInit, OnDestroy {
 
     this.sub1 = this.fb.getCities().subscribe((cities) => {
       Object.values(cities).forEach((city: any) => {
-        if (city.name === 'Rome') {
+        if (city.name === 'Cape Town') {
           this.followedCM = true;
         }
       });
@@ -60,7 +65,7 @@ export class AddComponent implements OnInit, OnDestroy {
   }
 
   addCityOfTheMonth() {
-    this.fb.addCity('Rome').subscribe(() => {
+    this.fb.addCity('Cape Town').subscribe(() => {
       this.followedCM = true;
     });
   }

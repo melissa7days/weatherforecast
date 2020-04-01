@@ -1,0 +1,19 @@
+export interface weather{
+    time:number;
+    summary:string;
+    icon:string;
+    precipIntensity:number;
+    precipProbability:number;
+    precipType:string;
+    temperature:string;
+    apparentTemperature:number;
+    dewPoint:number;
+    humidity:number;
+    pressure:number;
+    windSpeed:number;
+    windGust:number;
+    windBearing:number;
+    uvIndex:number;
+    visibility:number;
+    ozone:number;
+}
