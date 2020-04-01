@@ -162,10 +162,7 @@ app-weather-card {
     width: 90%;
     margin-bottom: 2rem;
   }
-  .back__button {
-    position: static;
-    margin-bottom: 5rem;
-  }
+  
   .add-wrapper {
     flex-flow: column;
   }
@@ -192,11 +189,14 @@ app-weather-card {
 }
   
 .back__button {
-  position: absolute;
   top: 3rem;
   left: 3.25rem;
   width: 5rem;
   cursor: pointer;
   z-index: 6;
-  margin-top: 2rem;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  padding: 40px;
+  margin-bottom: 20px;
 }
