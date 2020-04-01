@@ -6,23 +6,13 @@
   justify-content: center;
   align-items: center;
 }
-.back__button {
-  position: absolute;
-  top: 3rem;
-  left: 3.25rem;
-  width: 5rem;
-  cursor: pointer;
-  z-index: 6;
-  margin-top: 2rem;
-}
-
 .main-card {
   height: 87vh;
   width: 90vw;
   background-color: transparent;
   border-radius: 1rem;
   display: flex;
-  margin-top: -4rem;
+  margin-top: -6rem;
 }
 
 .add-city-btn {
@@ -33,6 +23,7 @@
   color: white;
   border-radius: 2rem;
   font-size: 1rem;
+  min-width: 100%;
 }
 
 .city-search-wrapper {
@@ -140,12 +131,13 @@
 .city-search-title {
   color: #0c1066;
   margin: 4rem 0 3rem 0;
-  font-size: 25px;
+  font-size: 22px;
   margin-left: 40px;
   font-weight: 200;
   color: #131F69;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  text-align: center;
 }
 app-weather-card {
   margin: 2rem 0;
@@ -158,6 +150,9 @@ app-weather-card {
     height: 80%;
     width: 75%;
   }
+  .add-city-btn{
+    visibility: hidden;
+  }
 }
 
 /* Media Query:   LT-MD   */
@@ -167,7 +162,10 @@ app-weather-card {
     width: 90%;
     margin-bottom: 2rem;
   }
-
+  .back__button {
+    position: static;
+    margin-bottom: 5rem;
+  }
   .add-wrapper {
     flex-flow: column;
   }
@@ -183,4 +181,22 @@ app-weather-card {
     margin: 2rem;
   }
 
+}
+
+
+/* Media Query:   LT-LG  */
+@media screen and (max-width: 1279px) {
+  .back__button {
+    top: 1rem;
+  }
+}
+  
+.back__button {
+  position: absolute;
+  top: 3rem;
+  left: 3.25rem;
+  width: 5rem;
+  cursor: pointer;
+  z-index: 6;
+  margin-top: 2rem;
 }

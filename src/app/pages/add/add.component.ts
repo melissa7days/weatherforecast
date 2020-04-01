@@ -3,75 +3,88 @@ import {HttpClient} from '@angular/common/http';
 import {WeatherService} from '../../services/weather/weather.service';
 import {FbService} from '../../services/fb/fb.service';
 import {first} from 'rxjs/operators';
+import { weather } from 'src/app/weather';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class AddComponent implements OnInit, OnDestroy {
+export class AddComponent implements OnInit {
 
-  temp: number;
+  today: number = Date.now();
+  constructor(private weatherService :WeatherService ,private router: Router) { 
+  }
+  weatherforcast:weather[];
+  term :string;
   city: string;
-  cities:[];
-  state: string;
-  capitals = [];
-  selectedCity;
-  cardCity;
-  showNote = false;
-  followedCM = false;
-  sub1;
+  code: string;
 
+  location = {
+    city:  'london',
+    code : 'uk'
+  };
+  weather:any;
+  value:any;
+ data:any [];
+ selectedCity;
+ cardCity;
+ defultCity='Durban'
+ defaultstate='ZA';
+   showNote = false;
 
-  constructor(public http: HttpClient, public weather: WeatherService, public fb: FbService) {
+  ngOnInit(): void {
+   
+ 
+this.getDefaultWeather();
+
+}
+ngAfterContentChecked(): void {
+  //Called after every check of the component's or directive's content.
+  //Add 'implements AfterContentChecked' to the class.
+  if(this.weatherService.check){
+    this.getSearchedWeather();
+    this.weatherService.check=false;
+    
   }
+  
+}
 
-  ngOnInit() {
-    this.weather.getWeather(this.city).subscribe((payload: any) => {
-      this.state = payload.weather[0].main;
-      this.temp = Math.ceil(Number(payload.main.temp));
-    });
-    this.weather.getWeather(this.city).subscribe(
-      response => {
-        console.log(response);
-        this.weather = response;
-      }
-    );
-    this.http.get('https://restcountries.eu/rest/v2/all').pipe((first())).subscribe((countries: Array<any>) => {
-      countries.forEach((country: any) => {
-        if (country.capital.length) {
-          this.capitals.push(country.capital);
-        }
-      });
-      this.capitals.sort();
-    });
+getDefaultWeather(){
 
-    this.sub1 = this.fb.getCities().subscribe((cities) => {
-      Object.values(cities).forEach((city: any) => {
-        if (city.name === 'Cape Town') {
-          this.followedCM = true;
-        }
-      });
-    });
-  }
-
-  selectCity(city) {
-    if (this.capitals.includes(city)) {
-      this.cardCity = city;
-      this.showNote = false;
-    } else if (city.leading > 0) {
-      this.showNote = true;
+  return this.weatherService.getWeatherData(this.defultCity, this.defaultstate).subscribe(
+    response => {
+      console.log(response);
+      this.weather=response;
     }
-  }
+  );
+}
 
-  addCityOfTheMonth() {
-    this.fb.addCity('Cape Town').subscribe(() => {
-      this.followedCM = true;
-    });
-  }
+check(){
+  this.weatherService.check=true;
+}
+ngDoCheck():void{
 
-  ngOnDestroy() {
-    this.sub1.unsubscribe();
-  }
+}
 
+getSearchedWeather(){
+  return this.weatherService.getWeatherData(this.city,this.code).subscribe(
+    response => {
+      console.log(response);
+      this.weather=response;
+    }
+  );
+}
+selectCity(city) {
+  if (this.city.includes(city)) {
+    this.cardCity = city;
+    this.showNote = false;
+    
+  } else if (city.leading > 0) {
+    this.showNote = true;
+    this.city = null;
+    this.weather = null;
+  }
+}
 }

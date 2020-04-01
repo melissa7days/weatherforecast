@@ -13,11 +13,11 @@ export class WeatherService {
   private readonly baseURL = 'https://api.openweathermap.org/data/2.5/weather?q=';
   private readonly forcastURL = 'https://api.openweathermap.org/data/2.5/forecast?q=';
   private readonly appID = 'a81a730a0edf521e8d64cb4c4be4c671';
+  check: boolean=false;
   constructor(public http: HttpClient) {
   }
   getWeatherData(city, code) {
     return this.http.get(this.forcastURL + city + ',' + code + '&APPID=' + this.appID +'&units=metric')
-
   }
   getWeather(city: string, metric: 'metric' | 'imperial' = 'metric'): Observable<any> {
     return this.http.get(

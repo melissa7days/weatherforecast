@@ -8,6 +8,8 @@
       <div class="city-search-wrapper">
   
         <div class="city-search-header">
+
+          <h3 class="city-search-title">SEARCH FOR A CITY</h3>
           <svg class="back__button" routerLink="" viewBox="4085 152 98.5 126" tabindex="0">
             <defs>
               <style>.a {
@@ -44,12 +46,9 @@
               </text>
             </g>
           </svg>
-          <h3 class="city-search-title">SEARCH FOR A CAPITAL CITY</h3>
           <div class="search-city-input-wrapper">
             <input class="search-city-input" auto-complete-placeholder="search city" placeholder="search city"
-                   auto-complete [(ngModel)]="selectedCity"
-                   (keyup.enter)="selectCity(input.value)"
-                   (ngModelChange)="selectCity(input.value)"
+                   auto-complete [(ngModel)]="city"
                    [source]="capitals" [max-num-list]="5" [close-on-focusout]="false" #input/>
             <button class="search-city-btn" (click)="selectCity(input.value)">
               <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
@@ -58,6 +57,15 @@
               </svg>
             </button>
           </div>
+<!-- 
+          <form >
+            <div class="form-group">
+            <label > </label>
+            <input type="text" class="search-city-input"name="city" [(ngModel)]="city" placeholder="Search Here" id="email">
+            <label > </label>
+            </div>
+            </form> -->
+
         </div>
   
         <div class="city-search-body">

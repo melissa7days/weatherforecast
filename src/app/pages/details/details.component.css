@@ -55,7 +55,7 @@
   .header-content__wrapper {
     position: absolute;
     z-index: 2;
-    color: white;
+    color: #000;
     top: 3rem;
     display: grid;
     grid-template-rows: 1fr;
