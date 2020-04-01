@@ -16,7 +16,6 @@ Weather Card Styling
     cursor: pointer;
     background-color: white;
     border-radius: 1.75rem;
-    animation: slideup 1s ease-in-out, fadein 1.25s ease-in-out 0ms 1;
   }
   
   .weather__card-add {
@@ -120,13 +119,15 @@ Weather Card Styling
     padding: 1rem 2rem;
     color: white;
     margin-top: 2rem;
-    background-color: #2b244d;
+    background: linear-gradient(to top, #3b0021,#9782c7 );
+
     font-size: 1rem;
     font-weight: bold;
   }
   
   .add-city-btn:hover {
-    background-color: #31feae;
+    background: linear-gradient(to bottom, #3b0021,#9782c7 );
+
   }
   
   .city-added-note {

@@ -4,25 +4,14 @@
   display: flex;
   align-items: center;
   flex-flow: column;
-  transition: background 300ms linear;
-  background-image: linear-gradient(to top, #5ee7df 0%, #66a6ff 100%);
+  background-image: linear-gradient(to top, rgba(66, 209, 219, 0.521) 0%, #ffe23bb7 100%);
 }
 
 .root__container-dark {
   /*background: linear-gradient(to top, #30cfd0 0%, #330867 100%);*/
-  background: linear-gradient(to bottom, #372865, #000000);
+  background: linear-gradient(to bottom, #000000,#33011a );
 }
 
-/*
-================
-    Header
-================
-*/
-
-/*
-    Slide Menu
-= = = = = = = = =
-*/
 .side-menu__container {
   position: fixed;
   left: 0;
@@ -172,7 +161,6 @@
   margin: 0;
   min-height: 4rem;
   align-items: center;
-  animation: slidedown 0.5s ease-in-out, fadein 1s ease-in-out;
 }
 
 .main__header-dark {
