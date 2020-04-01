@@ -55,7 +55,7 @@
   min-height: 100vh;
   width: 90%;
   max-width: 26rem;
-  background-color: white;
+  background-color: rgba(107, 107, 107, 0.445);
   box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1);
   display: grid;
   grid-template-columns: 1fr;
@@ -120,8 +120,8 @@
 }
 
 .link-active {
-  color: #495CFC;
-  border-bottom: 1px solid #495CFC;
+  color: rgb(0, 47, 68);
+  border-bottom: 1px solid rgb(0, 47, 68);
 }
 
 .menu-link {
@@ -130,25 +130,6 @@
   padding: 1rem 0;
   margin: 0.5rem 0;
   cursor: pointer;
-}
-
-.profile-image__container {
-  grid-area: image;
-  margin-right: 0.5rem;
-  border-radius: 50%;
-  height: 4rem;
-  width: 4rem;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  align-self: center;
-  margin-left: 2rem;
-}
-
-.profile__image {
-  max-width: 4rem;
 }
 
 /*Header*/
